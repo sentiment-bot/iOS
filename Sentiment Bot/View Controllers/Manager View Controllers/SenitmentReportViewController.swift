@@ -107,14 +107,6 @@ class SenitmentReportViewController: UIViewController, ManagerProtocol {
         chartData.setValueFont(.systemFont(ofSize: 18, weight: .bold))
         chartData.setValueTextColor(.lightGray)
         
-//        let darkRed = UIColor(red: 132.0/255.0, green: 13.0/255.0, blue: 27.0/255.0, alpha: 1.0)
-//        let darkGreen = UIColor(red:0.00, green:0.39, blue:0.00, alpha:1.0)
-//        let slateBlue = UIColor(red:0.28, green:0.24, blue:0.55, alpha:1.0)
-//        let darkGolden = UIColor(red:0.72, green:0.53, blue:0.04, alpha:1.0)
-//        let darkSlateGray = UIColor(red:0.18, green:0.31, blue:0.31, alpha:1.0)
-//        let darkCyan = UIColor(red:0.00, green:0.55, blue:0.55, alpha:1.0)
-//        let colors = [slateBlue, darkGolden, darkCyan, darkSlateGray, darkGreen, darkRed, UIColor.purple]
-        
         let colors = [UIColor.happy7, UIColor.happy6, UIColor.happy5, UIColor.happy4, UIColor.happy3, UIColor.happy2, UIColor.red]
         
         chartDataSet.colors = colors //as! [NSUIColor]
