@@ -16,19 +16,14 @@
 		A13547CA21E6D32B0045C5F0 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13547C921E6D32B0045C5F0 /* HTTPMethod.swift */; };
 		A13547CC21E6DE620045C5F0 /* Response+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13547CB21E6DE620045C5F0 /* Response+Mapping.swift */; };
 		A13E4D1621E7104000E19E6D /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13E4D1521E7104000E19E6D /* Survey.swift */; };
-		A140D93A21EEEEED008963C1 /* ReversedGeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140D93921EEEEED008963C1 /* ReversedGeoLocation.swift */; };
 		A140D93C21EFA581008963C1 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140D93B21EFA581008963C1 /* TabBarViewController.swift */; };
 		A140D93F21EFEDC1008963C1 /* UserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140D93E21EFEDC1008963C1 /* UserProtocol.swift */; };
-		A140D94321F17DE2008963C1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140D94221F17DE2008963C1 /* SignInViewController.swift */; };
-		A140D94521F17E31008963C1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140D94421F17E31008963C1 /* SignUpViewController.swift */; };
-		A140D94721F17F9E008963C1 /* SegmentedControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140D94621F17F9E008963C1 /* SegmentedControlViewController.swift */; };
 		A140D95621F54B92008963C1 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140D95521F54B92008963C1 /* ErrorMessage.swift */; };
 		A140D95A21F69257008963C1 /* ManagerTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140D95921F69257008963C1 /* ManagerTabBarViewController.swift */; };
 		A140D95C21F69298008963C1 /* SendSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140D95B21F69298008963C1 /* SendSurveyViewController.swift */; };
 		A140D95E21F693C2008963C1 /* SenitmentReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140D95D21F693C2008963C1 /* SenitmentReportViewController.swift */; };
 		A140D96421F6A2F7008963C1 /* ManagerTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140D96321F6A2F7008963C1 /* ManagerTimelineViewController.swift */; };
 		A140D96621F6A352008963C1 /* MembersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140D96521F6A352008963C1 /* MembersTableViewController.swift */; };
-		A140D96821F6A549008963C1 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140D96721F6A549008963C1 /* SubscriptionViewController.swift */; };
 		A140D96A21F6BE99008963C1 /* Feeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140D96921F6BE99008963C1 /* Feeling.swift */; };
 		A140D96C21F6E127008963C1 /* ManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A140D96B21F6E127008963C1 /* ManagerProtocol.swift */; };
 		A140D97621F78646008963C1 /* ManagerTimeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A140D97521F78646008963C1 /* ManagerTimeline.storyboard */; };
@@ -48,7 +43,6 @@
 		A1EA606621ECFF4800ACE25D /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EA606521ECFF4800ACE25D /* UserDefaultKeys.swift */; };
 		A1EA606921ECFF9A00ACE25D /* UserDefaults+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EA606821ECFF9A00ACE25D /* UserDefaults+extension.swift */; };
 		A1EA607821EE56E400ACE25D /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1EA607721EE56E300ACE25D /* credentials.plist */; };
-		A1EA607A21EE57B000ACE25D /* GoogleSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EA607921EE57B000ACE25D /* GoogleSignInViewController.swift */; };
 		A1F953002202202900C3CC9C /* InitialVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1F952FF2202202900C3CC9C /* InitialVC.storyboard */; };
 		A1F953022202244000C3CC9C /* JoinCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F953012202244000C3CC9C /* JoinCreateViewController.swift */; };
 		A1F95304220278B000C3CC9C /* UserTabBarContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F95303220278B000C3CC9C /* UserTabBarContainerViewController.swift */; };
@@ -85,19 +79,14 @@
 		A13547C921E6D32B0045C5F0 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		A13547CB21E6DE620045C5F0 /* Response+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Response+Mapping.swift"; sourceTree = "<group>"; };
 		A13E4D1521E7104000E19E6D /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
-		A140D93921EEEEED008963C1 /* ReversedGeoLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReversedGeoLocation.swift; sourceTree = "<group>"; };
 		A140D93B21EFA581008963C1 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		A140D93E21EFEDC1008963C1 /* UserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProtocol.swift; sourceTree = "<group>"; };
-		A140D94221F17DE2008963C1 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		A140D94421F17E31008963C1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		A140D94621F17F9E008963C1 /* SegmentedControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlViewController.swift; sourceTree = "<group>"; };
 		A140D95521F54B92008963C1 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		A140D95921F69257008963C1 /* ManagerTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerTabBarViewController.swift; sourceTree = "<group>"; };
 		A140D95B21F69298008963C1 /* SendSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSurveyViewController.swift; sourceTree = "<group>"; };
 		A140D95D21F693C2008963C1 /* SenitmentReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenitmentReportViewController.swift; sourceTree = "<group>"; };
 		A140D96321F6A2F7008963C1 /* ManagerTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerTimelineViewController.swift; sourceTree = "<group>"; };
 		A140D96521F6A352008963C1 /* MembersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersTableViewController.swift; sourceTree = "<group>"; };
-		A140D96721F6A549008963C1 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
 		A140D96921F6BE99008963C1 /* Feeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feeling.swift; sourceTree = "<group>"; };
 		A140D96B21F6E127008963C1 /* ManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerProtocol.swift; sourceTree = "<group>"; };
 		A140D97521F78646008963C1 /* ManagerTimeline.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ManagerTimeline.storyboard; sourceTree = "<group>"; };
@@ -117,7 +106,6 @@
 		A1EA606521ECFF4800ACE25D /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		A1EA606821ECFF9A00ACE25D /* UserDefaults+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+extension.swift"; sourceTree = "<group>"; };
 		A1EA607721EE56E300ACE25D /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
-		A1EA607921EE57B000ACE25D /* GoogleSignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInViewController.swift; sourceTree = "<group>"; };
 		A1F952FF2202202900C3CC9C /* InitialVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InitialVC.storyboard; sourceTree = "<group>"; };
 		A1F953012202244000C3CC9C /* JoinCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCreateViewController.swift; sourceTree = "<group>"; };
 		A1F95303220278B000C3CC9C /* UserTabBarContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTabBarContainerViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +162,110 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A1221B3C227FB0ED00EE27A6 /* Manager View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A1221B45227FDBAE00EE27A6 /* Manager Members View Controllers */,
+				A1221B44227FDAA800EE27A6 /* Manager Timeline View Controllers */,
+				A1221B43227FBBE600EE27A6 /* Survey View Controllers */,
+				A140D95921F69257008963C1 /* ManagerTabBarViewController.swift */,
+				A1F95305220278CD00C3CC9C /* ManagerTabBarContainerViewController.swift */,
+				A140D95D21F693C2008963C1 /* SenitmentReportViewController.swift */,
+			);
+			path = "Manager View Controllers";
+			sourceTree = "<group>";
+		};
+		A1221B3D227FB12900EE27A6 /* Team Member View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F1ECBD0121E70BF5005CDBE8 /* TimelineViewController.swift */,
+				F1E949A721EBB05F000634AD /* TimeLineTableViewCell.swift */,
+				F1DFA0C021F924290078B8C5 /* UserContainerViewController.swift */,
+				A1F95303220278B000C3CC9C /* UserTabBarContainerViewController.swift */,
+				A140D93B21EFA581008963C1 /* TabBarViewController.swift */,
+				F1ECBD0521E70C26005CDBE8 /* MapViewController.swift */,
+			);
+			path = "Team Member View Controllers";
+			sourceTree = "<group>";
+		};
+		A1221B3E227FB2F400EE27A6 /* Authentication View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F1B9B77E220A1B88002DC836 /* SignInUpViewController.swift */,
+			);
+			path = "Authentication View Controllers";
+			sourceTree = "<group>";
+		};
+		A1221B3F227FB36200EE27A6 /* General View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A1F953012202244000C3CC9C /* JoinCreateViewController.swift */,
+				A1279E1C222373E200D3D3C8 /* InitialViewController.swift */,
+				F14A520822012DE500274F6F /* SettingsTableViewController.swift */,
+			);
+			path = "General View Controllers";
+			sourceTree = "<group>";
+		};
+		A1221B40227FB75A00EE27A6 /* Manager Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A140D97521F78646008963C1 /* ManagerTimeline.storyboard */,
+				A140D97721F7868D008963C1 /* TeamMembers.storyboard */,
+				A140D97B21F786E7008963C1 /* SentimentReport.storyboard */,
+				A140D97921F786BC008963C1 /* SendSurvey.storyboard */,
+			);
+			path = "Manager Storyboards";
+			sourceTree = "<group>";
+		};
+		A1221B41227FB76C00EE27A6 /* Team Member Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F1CDD23B21ECFF06008E7A57 /* Timeline.storyboard */,
+				F1CDD23D21ECFF36008E7A57 /* Map.storyboard */,
+			);
+			path = "Team Member Storyboards";
+			sourceTree = "<group>";
+		};
+		A1221B42227FB77900EE27A6 /* General Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A1F952FF2202202900C3CC9C /* InitialVC.storyboard */,
+				F1B7E59321E547460096FC6F /* LaunchScreen.storyboard */,
+				F1CDD27021ED99D5008E7A57 /* Settings.storyboard */,
+				F1B7E58E21E547450096FC6F /* Main.storyboard */,
+			);
+			path = "General Storyboards";
+			sourceTree = "<group>";
+		};
+		A1221B43227FBBE600EE27A6 /* Survey View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A1DA7AE921FD56200006F7A7 /* FeelingTableViewCell.swift */,
+				A1DA7AE521FD50910006F7A7 /* SendSurveyFormViewController.swift */,
+				A140D95B21F69298008963C1 /* SendSurveyViewController.swift */,
+				A1DA7AEB21FD6D650006F7A7 /* ManagementViewController.swift */,
+			);
+			path = "Survey View Controllers";
+			sourceTree = "<group>";
+		};
+		A1221B44227FDAA800EE27A6 /* Manager Timeline View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A140D96321F6A2F7008963C1 /* ManagerTimelineViewController.swift */,
+				F15713C72200337F00F6A62F /* ManagerTimelineTableViewCell.swift */,
+			);
+			path = "Manager Timeline View Controllers";
+			sourceTree = "<group>";
+		};
+		A1221B45227FDBAE00EE27A6 /* Manager Members View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A140D96521F6A352008963C1 /* MembersTableViewController.swift */,
+				F1C3CBDA2200D3A000CE2A31 /* MembersTableViewCell.swift */,
+			);
+			path = "Manager Members View Controllers";
+			sourceTree = "<group>";
+		};
 		A13547C521E6D0750045C5F0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,7 +273,6 @@
 				A140D96921F6BE99008963C1 /* Feeling.swift */,
 				A13547C321E6D06D0045C5F0 /* Response.swift */,
 				A13547CB21E6DE620045C5F0 /* Response+Mapping.swift */,
-				A140D93921EEEEED008963C1 /* ReversedGeoLocation.swift */,
 				A13E4D1521E7104000E19E6D /* Survey.swift */,
 				A13547C621E6D0C70045C5F0 /* Team.swift */,
 				F18865D121EEB306008F9D35 /* TestUser.swift */,
@@ -280,16 +371,9 @@
 		F1ECBCF821E70664005CDBE8 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				A1F952FF2202202900C3CC9C /* InitialVC.storyboard */,
-				F1B7E59321E547460096FC6F /* LaunchScreen.storyboard */,
-				F1B7E58E21E547450096FC6F /* Main.storyboard */,
-				A140D97521F78646008963C1 /* ManagerTimeline.storyboard */,
-				F1CDD23D21ECFF36008E7A57 /* Map.storyboard */,
-				A140D97921F786BC008963C1 /* SendSurvey.storyboard */,
-				A140D97B21F786E7008963C1 /* SentimentReport.storyboard */,
-				F1CDD27021ED99D5008E7A57 /* Settings.storyboard */,
-				A140D97721F7868D008963C1 /* TeamMembers.storyboard */,
-				F1CDD23B21ECFF06008E7A57 /* Timeline.storyboard */,
+				A1221B42227FB77900EE27A6 /* General Storyboards */,
+				A1221B41227FB76C00EE27A6 /* Team Member Storyboards */,
+				A1221B40227FB75A00EE27A6 /* Manager Storyboards */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -308,32 +392,10 @@
 		F1ECBCFE21E708F2005CDBE8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A1DA7AE921FD56200006F7A7 /* FeelingTableViewCell.swift */,
-				A1EA607921EE57B000ACE25D /* GoogleSignInViewController.swift */,
-				A1F953012202244000C3CC9C /* JoinCreateViewController.swift */,
-				A1DA7AEB21FD6D650006F7A7 /* ManagementViewController.swift */,
-				A1F95305220278CD00C3CC9C /* ManagerTabBarContainerViewController.swift */,
-				A140D95921F69257008963C1 /* ManagerTabBarViewController.swift */,
-				F15713C72200337F00F6A62F /* ManagerTimelineTableViewCell.swift */,
-				A140D96321F6A2F7008963C1 /* ManagerTimelineViewController.swift */,
-				F1ECBD0521E70C26005CDBE8 /* MapViewController.swift */,
-				F1C3CBDA2200D3A000CE2A31 /* MembersTableViewCell.swift */,
-				A140D96521F6A352008963C1 /* MembersTableViewController.swift */,
-				A140D94621F17F9E008963C1 /* SegmentedControlViewController.swift */,
-				A1DA7AE521FD50910006F7A7 /* SendSurveyFormViewController.swift */,
-				A140D95B21F69298008963C1 /* SendSurveyViewController.swift */,
-				A140D95D21F693C2008963C1 /* SenitmentReportViewController.swift */,
-				F14A520822012DE500274F6F /* SettingsTableViewController.swift */,
-				A140D94221F17DE2008963C1 /* SignInViewController.swift */,
-				A140D94421F17E31008963C1 /* SignUpViewController.swift */,
-				A140D96721F6A549008963C1 /* SubscriptionViewController.swift */,
-				A140D93B21EFA581008963C1 /* TabBarViewController.swift */,
-				F1E949A721EBB05F000634AD /* TimeLineTableViewCell.swift */,
-				F1ECBD0121E70BF5005CDBE8 /* TimelineViewController.swift */,
-				F1DFA0C021F924290078B8C5 /* UserContainerViewController.swift */,
-				A1F95303220278B000C3CC9C /* UserTabBarContainerViewController.swift */,
-				F1B9B77E220A1B88002DC836 /* SignInUpViewController.swift */,
-				A1279E1C222373E200D3D3C8 /* InitialViewController.swift */,
+				A1221B3F227FB36200EE27A6 /* General View Controllers */,
+				A1221B3E227FB2F400EE27A6 /* Authentication View Controllers */,
+				A1221B3D227FB12900EE27A6 /* Team Member View Controllers */,
+				A1221B3C227FB0ED00EE27A6 /* Manager View Controllers */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -528,12 +590,10 @@
 			files = (
 				A1DA7AE621FD50910006F7A7 /* SendSurveyFormViewController.swift in Sources */,
 				F1E949A821EBB05F000634AD /* TimeLineTableViewCell.swift in Sources */,
-				A140D96821F6A549008963C1 /* SubscriptionViewController.swift in Sources */,
 				F1B9B788220CF3FE002DC836 /* UIView+extension.swift in Sources */,
 				F1B9B77F220A1B88002DC836 /* SignInUpViewController.swift in Sources */,
 				A1DA7AEC21FD6D650006F7A7 /* ManagementViewController.swift in Sources */,
 				A1F95306220278CD00C3CC9C /* ManagerTabBarContainerViewController.swift in Sources */,
-				A140D94721F17F9E008963C1 /* SegmentedControlViewController.swift in Sources */,
 				A13E4D1621E7104000E19E6D /* Survey.swift in Sources */,
 				A13547C721E6D0C70045C5F0 /* Team.swift in Sources */,
 				A140D96621F6A352008963C1 /* MembersTableViewController.swift in Sources */,
@@ -545,11 +605,9 @@
 				F1B7E58B21E547450096FC6F /* AppDelegate.swift in Sources */,
 				A13547BE21E69C5D0045C5F0 /* APIController.swift in Sources */,
 				F1DFA0C121F924290078B8C5 /* UserContainerViewController.swift in Sources */,
-				A140D94321F17DE2008963C1 /* SignInViewController.swift in Sources */,
 				A1DA7AEA21FD56200006F7A7 /* FeelingTableViewCell.swift in Sources */,
 				F15713C82200337F00F6A62F /* ManagerTimelineTableViewCell.swift in Sources */,
 				A140D93F21EFEDC1008963C1 /* UserProtocol.swift in Sources */,
-				A1EA607A21EE57B000ACE25D /* GoogleSignInViewController.swift in Sources */,
 				A1279E1D222373E200D3D3C8 /* InitialViewController.swift in Sources */,
 				F18865D221EEB306008F9D35 /* TestUser.swift in Sources */,
 				F15713C421FD775100F6A62F /* Theme.swift in Sources */,
@@ -567,12 +625,10 @@
 				A140D95A21F69257008963C1 /* ManagerTabBarViewController.swift in Sources */,
 				F1B9B783220A46A0002DC836 /* UIColor+extension.swift in Sources */,
 				A140D96C21F6E127008963C1 /* ManagerProtocol.swift in Sources */,
-				A140D93A21EEEEED008963C1 /* ReversedGeoLocation.swift in Sources */,
 				F1ECBD0221E70BF5005CDBE8 /* TimelineViewController.swift in Sources */,
 				A1EA606021E8707100ACE25D /* Trigger.swift in Sources */,
 				F1C3CBDB2200D3A000CE2A31 /* MembersTableViewCell.swift in Sources */,
 				A140D96A21F6BE99008963C1 /* Feeling.swift in Sources */,
-				A140D94521F17E31008963C1 /* SignUpViewController.swift in Sources */,
 				A140D95621F54B92008963C1 /* ErrorMessage.swift in Sources */,
 				F1ECBD0621E70C26005CDBE8 /* MapViewController.swift in Sources */,
 			);
