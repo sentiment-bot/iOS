@@ -69,6 +69,10 @@ class SignInUpViewController: UIViewController {
         getUser()
         
         locationHelper.requestLocationAuthorization()
+        setupDelegates()
+    }
+    
+    private func setupDelegates() {
         GIDSignIn.sharedInstance()?.uiDelegate = self
         GIDSignIn.sharedInstance()?.delegate = self
         
@@ -94,73 +98,29 @@ class SignInUpViewController: UIViewController {
         guard let _ = GIDSignIn.sharedInstance()?.currentUser else {
             return
         }
-        if UserDefaults.standard.userId != 0 {
-            guard let user = user else { return }
-            if user.isAdmin {
-                DispatchQueue.main.async {
-                    let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                    
-                    let managerVC = mainStoryBoard.instantiateViewController(withIdentifier: "ManagerTabBarContainerViewController") as! ManagerTabBarContainerViewController
-                    self.present(managerVC, animated: true) {
-                        
-                    }
-                }
-            } else if user.isTeamMember {
-                let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                
-                let userVC = mainStoryBoard.instantiateViewController(withIdentifier: "UserTabBarContainerViewController") as! UserTabBarContainerViewController
-                self.present(userVC, animated: true) {
-                    
-                }
-            } else {
-                let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                
-                let intialVC = mainStoryBoard.instantiateViewController(withIdentifier: "InitialViewController") as! InitialViewController
-                self.present(intialVC, animated: true) {
-                    
-                }
-            }
-        }
+
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         showSignIn()
-        
-        guard let _ = GIDSignIn.sharedInstance()?.currentUser else {
-            return
+        guard let _ = GIDSignIn.sharedInstance()?.currentUser else { return }
+        guard let user = user else { return }
+        if user.isAdmin {
+            presentVC(identifier: "ManagerTabBarContainerViewController")
+        } else if user.isTeamMember {
+            presentVC(identifier: "UserTabBarContainerViewController")
+        } else {
+            presentVC(identifier: "InitialViewController")
         }
+    }
+    
+    private func presentVC(identifier: String) {
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
-        
-        if UserDefaults.standard.userId != 0 {
-            guard let user = user else { return }
-            if user.isAdmin {
-                DispatchQueue.main.async {
-                    let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                    
-                    let managerVC = mainStoryBoard.instantiateViewController(withIdentifier: "ManagerTabBarContainerViewController") as! ManagerTabBarContainerViewController
-                    self.present(managerVC, animated: true) {
-                        
-                    }
-                }
-            } else if user.isTeamMember {
-                let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                
-                let userVC = mainStoryBoard.instantiateViewController(withIdentifier: "UserTabBarContainerViewController") as! UserTabBarContainerViewController
-                self.present(userVC, animated: true) {
-                    
-                }
-            } else {
-                let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                
-                let intialVC = mainStoryBoard.instantiateViewController(withIdentifier: "InitialViewController") as! InitialViewController
-                self.present(intialVC, animated: true) {
-                    
-                }
-            }
-        }
+        let VC = mainStoryBoard.instantiateViewController(withIdentifier: identifier)
+        self.present(VC, animated: true)
     }
     
     // MARK: - Private Functions
@@ -182,7 +142,7 @@ class SignInUpViewController: UIViewController {
     
     private func forcePerformSegue(privilege: Privilege?) {
         guard let privilege = privilege else {
-            presentInitialViewController()
+            presentVC(identifier: "InitialViewController")
             return
         }
         switch privilege{
@@ -190,66 +150,24 @@ class SignInUpViewController: UIViewController {
                 self.performSegue(withIdentifier: "ToManagerScreen", sender: self)
             case .teamMember:
                 self.performSegue(withIdentifier: "ToTeamMemberScreen", sender: self)
-            }
-    }
-    
-    private func presentInitialViewController() {
-        let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        let intialVC = mainStoryBoard.instantiateViewController(withIdentifier: "InitialViewController") as! InitialViewController
-        self.present(intialVC, animated: true)
+        }
     }
     
     @IBAction func signIn(_ sender: UIButton) {
 
         guard let email = signInEmailTextField.text,
-            let password = signInPasswordTextField.text else {
-                return
-        }
-        
-        func clearFields() {
-            DispatchQueue.main.async {
-                self.signInEmailTextField.text = ""
-                self.signInPasswordTextField.text = ""
-            }
-        }
+              let password = signInPasswordTextField.text else { return }
         
         APIController.shared.logIn(email: email, password: password) { (error) in
             
             if let error = error {
-                
-                //Better Error handling would be to show user error
-                //becuase the error that is retreived here may say something like
-                // "Password field cannot be empty", etc.
-                
                 DispatchQueue.main.async {
                     self.signInView.shake()
                 }
                 NSLog("Error logging in \(error)")
             } else {
-                
-                APIController.shared.getUser(userId: UserDefaults.standard.userId) { (user, error) in
-                    
-                    if let error = error {
-                        NSLog("There was error retreiving current User: \(error)")
-                    } else if let user = user {
-                        clearFields()
-                        DispatchQueue.main.async {
-                            if user.isAdmin {
-                                self.performSegue(withIdentifier: "ToManagerScreen", sender: self)
-                            } else if user.isTeamMember {
-                                self.performSegue(withIdentifier: "ToTeamMemberScreen", sender: self)
-                            } else {
-                                let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                                
-                                let intialVC = mainStoryBoard.instantiateViewController(withIdentifier: "InitialViewController") as! InitialViewController
-                                self.present(intialVC, animated: true) {
-                                    
-                                }
-                            }
-                        }
-                    }
-                }
+                self.clearFields()
+                self.getUser()
             }
         }
     }
@@ -260,6 +178,17 @@ class SignInUpViewController: UIViewController {
 
     }
     
+    func clearFields() {
+        DispatchQueue.main.async {
+            self.signInEmailTextField.text = ""
+            self.signInPasswordTextField.text = ""
+            self.firstNameTextField.text = ""
+            self.lastNameTextField.text = ""
+            self.signUpEmailTextField.text = ""
+            self.signUpPasswordTextField.text = ""
+        }
+    }
+    
     @IBAction func signUp(_ sender: UIButton) {
         guard let firstName = firstNameTextField.text,
             let lastName = lastNameTextField.text,
@@ -268,35 +197,16 @@ class SignInUpViewController: UIViewController {
                 return
         }
         
-        func clearFields() {
-            DispatchQueue.main.async {
-                self.firstNameTextField.text = ""
-                self.lastNameTextField.text = ""
-                self.signUpEmailTextField.text = ""
-                self.signUpPasswordTextField.text = ""
-            }
-        }
-        
         APIController.shared.signUp(firstName: firstName, lastName: lastName, email: email, password: password) { (errorMessage) in
             
             if let errorMessage = errorMessage {
-                
-                //Better Error handling would be to show user error
-                //becuase the error that is retreived here may say something like
-                // "Password field cannot be empty", etc.
-                
                 DispatchQueue.main.async {
                     self.signUpView.shake()
                 }
                 NSLog("Error signing up \(errorMessage)")
             } else {
                 DispatchQueue.main.async {
-                    let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                    
-                    let intialVC = mainStoryBoard.instantiateViewController(withIdentifier: "InitialViewController") as! InitialViewController
-                    self.present(intialVC, animated: true) {
-                        clearFields()
-                    }
+                    self.presentVC(identifier: "InitialViewController")
                 }
             }
         }
