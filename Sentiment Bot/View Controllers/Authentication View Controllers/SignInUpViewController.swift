@@ -171,22 +171,33 @@ class SignInUpViewController: UIViewController {
             if let errorMessage = errorMessage {
                 NSLog(errorMessage.message.joined())
             } else if let user = user {
-                DispatchQueue.main.async {
-                    if user.isAdmin {
-                        self.performSegue(withIdentifier: "ToManagerScreen", sender: self)
-                    } else if user.isTeamMember {
-                        self.performSegue(withIdentifier: "ToTeamMemberScreen", sender: self)
-                    } else {
-                        let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                        
-                        let intialVC = mainStoryBoard.instantiateViewController(withIdentifier: "InitialViewController") as! InitialViewController
-                        self.present(intialVC, animated: true) {
-                            
-                        }
-                    }
-                }
+                self.privilege = user.isAdmin ? .admin : user.isTeamMember ? .teamMember : nil
+                self.forcePerformSegue(privilege: self.privilege)
             }
         }
+    }
+    
+    var privilege: Privilege?
+    
+    
+    private func forcePerformSegue(privilege: Privilege?) {
+        guard let privilege = privilege else {
+            presentInitialViewController()
+            return
+        }
+        switch privilege{
+            case .admin:
+                self.performSegue(withIdentifier: "ToManagerScreen", sender: self)
+            case .teamMember:
+                self.performSegue(withIdentifier: "ToTeamMemberScreen", sender: self)
+            }
+    }
+    
+    private func presentInitialViewController() {
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        let intialVC = mainStoryBoard.instantiateViewController(withIdentifier: "InitialViewController") as! InitialViewController
+        self.present(intialVC, animated: true)
     }
     
     @IBAction func signIn(_ sender: UIButton) {
