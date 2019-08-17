@@ -9,22 +9,39 @@
 import UIKit
 
 class UserTabBarContainerViewController: UIViewController {
-
+    
+    var responses: [Response] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        APIController.shared.getUserResponses(userId: UserDefaults.standard.userId) { (responses, errorMessage) in
+            if let errorMessage = errorMessage {
+                NSLog(errorMessage.message.joined(separator: "\n"))
+            } else {
+                guard let responses = responses else {
+                    NSLog("Responses wasn't set in UserTabBarContainerVC")
+                    return
+                }
+                self.responses = responses
+                self.passToChildViewControllers()
+            }
+        }
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func passToChildViewControllers() {
+        for child in children {
+            if let child = child as? UserContainerViewController {
+                child.privilege = Privilege.teamMember
+            }
+            if var child = child as? UserProtocol {
+                child.userResponses = responses
+                child.user = APIController.shared.currentUser
+            }
+            
+            if var child = child as? UserImageProtocol {
+                child.userImage = APIController.shared.userImage
+            }
+        }
     }
-    */
 
 }

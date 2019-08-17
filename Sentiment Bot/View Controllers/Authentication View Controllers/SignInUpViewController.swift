@@ -224,11 +224,10 @@ class SignInUpViewController: UIViewController {
                     } else if let user = user {
                         clearFields()
                         DispatchQueue.main.async {
-                            let authenticationViewController = self
                             if user.isAdmin {
-                                authenticationViewController.performSegue(withIdentifier: "ToManagerScreen", sender: self)
+                                self.performSegue(withIdentifier: "ToManagerScreen", sender: self)
                             } else if user.isTeamMember {
-                                authenticationViewController.performSegue(withIdentifier: "ToTeamMemberScreen", sender: self)
+                                self.performSegue(withIdentifier: "ToTeamMemberScreen", sender: self)
                             } else {
                                 let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
                                 

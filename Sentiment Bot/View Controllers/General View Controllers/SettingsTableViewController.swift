@@ -120,9 +120,9 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section ==  1 && (user?.isAdmin)! {
-           return 0
-        }
+//        if section ==  1 && (user?.isAdmin)! {
+//           return 0
+//        }
         return tableView.sectionHeaderHeight
     }
 

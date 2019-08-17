@@ -14,7 +14,7 @@ struct User: Codable {
     var firstName: String
     var lastName: String
     var teamId: Int?
-//    var teamName: String
+    //var teamName: String
     var imageUrl: URL?
     var subscribed: Bool
     let isAdmin: Bool

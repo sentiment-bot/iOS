@@ -37,6 +37,11 @@ class ManagerTabBarViewController: UITabBarController {
     
     func passToVCs() {
         for childVC in children {
+            
+            if let childVC = childVC as? UserContainerViewController {
+                childVC.privilege = Privilege.admin
+            }
+            
             if let navVC = childVC as? UINavigationController {
                 if var initialVC = navVC.topViewController as? ManagerProtocol {
                     initialVC.user = user

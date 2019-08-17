@@ -9,9 +9,6 @@
 import UIKit
 import JWTDecode
 
-//This will be modularized and refactored one day
-// MVP is prioritized
-//For now use code folding to make scrolling managable
 class APIController {
     
     static let shared = APIController()
@@ -103,14 +100,14 @@ class APIController {
                 let jwtToken = try JSONDecoder().decode(JWT.self, from: data)
                 let jwt = try decode(jwt: jwtToken.jwt)
                 let userId = jwt.body["id"] as! Int
-                let teamId = 0000 //jwt.body["teamid"] as! Int
+                
                 let token = jwt.string
-                self.saveCurrentUser(userId: userId, teamId: teamId, token: token)
+                self.saveCurrentUser(userId: userId, token: token)
             } catch {
                 NSLog("Error decoding JSON Web Token \(error)")
                 return
             }
-            
+            self.getUser(userId: UserDefaults.standard.userId)
             NSLog("Successfully logged in User")
             
             completion(nil)
@@ -118,7 +115,7 @@ class APIController {
     }
     
     //Get User through userId
-    func getUser(userId: Int, completion: @escaping (User?, ErrorMessage?) -> Void) {
+    func getUser(userId: Int, completion: @escaping (User?, ErrorMessage?) -> Void = {_, _ in }) {
         let url = baseUrl.appendingPathComponent("users")
                          .appendingPathComponent("\(userId)")
         
@@ -160,12 +157,22 @@ class APIController {
             
             do {
                 let user = try JSONDecoder().decode(User.self, from: data)
+                self.currentUser = user
                 completion(user, nil)
             } catch {
                 NSLog("Error with network request: \(error)")
                 return
             }
-            
+            guard let url  = self.currentUser?.imageUrl else {
+                NSLog("Current User wasn't set on getUser")
+                return
+            }
+            guard let teamId = self.currentUser?.teamId else {
+                NSLog("teamId wasn't set in getTeam")
+                return
+            }
+            self.getTeam(teamId: teamId)
+            self.getImage(url: url)
             NSLog("Successfully fetched User")
             
             
@@ -355,7 +362,7 @@ class APIController {
     }
     
     //Get User Survey Responses
-    func getUserResponses(userId: Int, completion: @escaping ([Response]?, ErrorMessage?) -> Void) {
+    func getUserResponses(userId: Int, completion: @escaping ([Response]?, ErrorMessage?) -> Void = {_, _ in }) {
         let url = baseUrl.appendingPathComponent("users")
                          .appendingPathComponent("\(userId)")
                          .appendingPathComponent("responses")
@@ -396,6 +403,7 @@ class APIController {
             
             do {
                 let responses = try JSONDecoder().decode([Response].self, from: data)
+                self.userResponses = responses
                 completion(responses, nil)
             } catch {
                 NSLog("Error with network request: \(error)")
@@ -452,9 +460,8 @@ class APIController {
                 let jwtToken = try JSONDecoder().decode(JWT.self, from: data)
                 let jwt = try decode(jwt: jwtToken.jwt)
                 let userId = jwt.body["id"] as! Int
-                let teamId = 0000 //jwt.body["teamid"] as! Int
                 let token = jwt.string
-                self.saveCurrentUser(userId: userId, teamId: teamId, token: token)
+                self.saveCurrentUser(userId: userId, token: token)
             } catch {
                 NSLog("Error decoding JSON Web Token \(error)")
                 return
@@ -519,7 +526,7 @@ class APIController {
             }.resume()
     }
     
-    func getTeam(teamId: Int, completion: @escaping (Team?, ErrorMessage?) -> Void) {
+    func getTeam(teamId: Int, completion: @escaping (Team?, ErrorMessage?) -> Void = { _, _ in }) {
         let url = baseUrl.appendingPathComponent("teams")
             .appendingPathComponent("\(teamId)")
         
@@ -559,6 +566,7 @@ class APIController {
             
             do {
                 let team = try JSONDecoder().decode(Team.self, from: data)
+                self.team = team
                 completion(team, nil)
             } catch {
                 NSLog("Error with network request: \(error)")
@@ -1230,29 +1238,30 @@ class APIController {
                 return
             }
             let image = UIImage(data: data)
+            self.userImage = image
             completion(image, error);
         }.resume()
     }
     
     //Save JSON Web Token and Associated User
-    private func saveCurrentUser(userId: Int, teamId: Int, token: String) {
+    private func saveCurrentUser(userId: Int, token: String) {
         UserDefaults.standard.set(token, forKey: UserDefaultsKeys.token.rawValue)
         UserDefaults.standard.set(userId, forKey: UserDefaultsKeys.userId.rawValue)
-        UserDefaults.standard.set(teamId, forKey: UserDefaultsKeys.teamId.rawValue)
         UserDefaults.standard.set(true, forKey: UserDefaultsKeys.isLoggedIn.rawValue)
     }
     
     func logout() {
-        UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
         UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.token.rawValue)
         UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.teamId.rawValue)
         UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.isLoggedIn.rawValue)
         UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.userId.rawValue)
     }
     
-    
-    
-    
+    var team: Team?
+    var userImage: UIImage?
+    var teamMembers: [User] = []
+    var currentUser: User?
+    var userResponses: [Response] = []
     let locationHelper = LocationHelper()
     let baseUrl = URL(string: "https://sentimentbot-1.herokuapp.com/api")!
     //let baseUrl = URL(string: "http://192.168.1.152:3000/api")!

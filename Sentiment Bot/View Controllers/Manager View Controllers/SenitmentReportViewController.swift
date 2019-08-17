@@ -91,14 +91,6 @@ class SenitmentReportViewController: UIViewController, ManagerProtocol {
         let chartData = PieChartData(dataSet: chartDataSet)
         let legend = pieChart.legend
         legend.enabled = false
-//
-//        legend.horizontalAlignment = .right
-//        legend.verticalAlignment = .top
-//        legend.orientation = .vertical
-//        legend.xEntrySpace = 7
-//        legend.yEntrySpace = 0
-//        legend.yOffset = 0
-        
         let formatter = NumberFormatter()
         formatter.numberStyle = .percent
         formatter.maximumFractionDigits = 1
@@ -113,15 +105,6 @@ class SenitmentReportViewController: UIViewController, ManagerProtocol {
         
         pieChart.data = chartData
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0C99F989B5C76ECD3F5C3CD2 /* Pods_Sentiment_Bot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7C4288AE6B4B1B0B2C7069D /* Pods_Sentiment_Bot.framework */; };
+		A105125B229B6FEA00F37EF1 /* UserImageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105125A229B6FEA00F37EF1 /* UserImageProtocol.swift */; };
+		A105125D229B73EE00F37EF1 /* TeamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105125C229B73EE00F37EF1 /* TeamProtocol.swift */; };
 		A1279E1D222373E200D3D3C8 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1279E1C222373E200D3D3C8 /* InitialViewController.swift */; };
 		A13547BE21E69C5D0045C5F0 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13547BD21E69C5D0045C5F0 /* APIController.swift */; };
 		A13547C021E69D160045C5F0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13547BF21E69D160045C5F0 /* User.swift */; };
@@ -33,6 +35,7 @@
 		A140D97E21FA9DEB008963C1 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A140D97D21FA9DEA008963C1 /* Charts.framework */; };
 		A140D98021FC1DA2008963C1 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A140D97F21FC1DA1008963C1 /* Eureka.framework */; };
 		A14A444E220A6CAC0012C5FE /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A14A444D220A6CAB0012C5FE /* SVProgressHUD.framework */; };
+		A16CE5CF23078D5A00A0FE5C /* Privilege.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CE5CE23078D5A00A0FE5C /* Privilege.swift */; };
 		A1DA7AE621FD50910006F7A7 /* SendSurveyFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA7AE521FD50910006F7A7 /* SendSurveyFormViewController.swift */; };
 		A1DA7AEA21FD56200006F7A7 /* FeelingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA7AE921FD56200006F7A7 /* FeelingTableViewCell.swift */; };
 		A1DA7AEC21FD6D650006F7A7 /* ManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DA7AEB21FD6D650006F7A7 /* ManagementViewController.swift */; };
@@ -71,6 +74,8 @@
 
 /* Begin PBXFileReference section */
 		3E65500EBE0280EA0839F9CF /* Pods-Sentiment Bot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentiment Bot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sentiment Bot/Pods-Sentiment Bot.release.xcconfig"; sourceTree = "<group>"; };
+		A105125A229B6FEA00F37EF1 /* UserImageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImageProtocol.swift; sourceTree = "<group>"; };
+		A105125C229B73EE00F37EF1 /* TeamProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamProtocol.swift; sourceTree = "<group>"; };
 		A1279E1C222373E200D3D3C8 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		A13547BD21E69C5D0045C5F0 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		A13547BF21E69D160045C5F0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -96,6 +101,7 @@
 		A140D97D21FA9DEA008963C1 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		A140D97F21FC1DA1008963C1 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		A14A444D220A6CAB0012C5FE /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
+		A16CE5CE23078D5A00A0FE5C /* Privilege.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Privilege.swift; sourceTree = "<group>"; };
 		A1DA7AE521FD50910006F7A7 /* SendSurveyFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSurveyFormViewController.swift; sourceTree = "<group>"; };
 		A1DA7AE921FD56200006F7A7 /* FeelingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingTableViewCell.swift; sourceTree = "<group>"; };
 		A1DA7AEB21FD6D650006F7A7 /* ManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementViewController.swift; sourceTree = "<group>"; };
@@ -287,6 +293,7 @@
 				A13547C921E6D32B0045C5F0 /* HTTPMethod.swift */,
 				A1EA605F21E8707100ACE25D /* Trigger.swift */,
 				A1EA606521ECFF4800ACE25D /* UserDefaultKeys.swift */,
+				A16CE5CE23078D5A00A0FE5C /* Privilege.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -296,6 +303,8 @@
 			children = (
 				A140D93E21EFEDC1008963C1 /* UserProtocol.swift */,
 				A140D96B21F6E127008963C1 /* ManagerProtocol.swift */,
+				A105125A229B6FEA00F37EF1 /* UserImageProtocol.swift */,
+				A105125C229B73EE00F37EF1 /* TeamProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -589,6 +598,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1DA7AE621FD50910006F7A7 /* SendSurveyFormViewController.swift in Sources */,
+				A105125D229B73EE00F37EF1 /* TeamProtocol.swift in Sources */,
 				F1E949A821EBB05F000634AD /* TimeLineTableViewCell.swift in Sources */,
 				F1B9B788220CF3FE002DC836 /* UIView+extension.swift in Sources */,
 				F1B9B77F220A1B88002DC836 /* SignInUpViewController.swift in Sources */,
@@ -598,6 +608,7 @@
 				A13547C721E6D0C70045C5F0 /* Team.swift in Sources */,
 				A140D96621F6A352008963C1 /* MembersTableViewController.swift in Sources */,
 				A13547C021E69D160045C5F0 /* User.swift in Sources */,
+				A105125B229B6FEA00F37EF1 /* UserImageProtocol.swift in Sources */,
 				F14A520922012DE500274F6F /* SettingsTableViewController.swift in Sources */,
 				A140D93C21EFA581008963C1 /* TabBarViewController.swift in Sources */,
 				A13547CA21E6D32B0045C5F0 /* HTTPMethod.swift in Sources */,
@@ -615,6 +626,7 @@
 				A13547C421E6D06D0045C5F0 /* Response.swift in Sources */,
 				F1B9B781220A4641002DC836 /* UIButton+extension.swift in Sources */,
 				A1EA605B21E8270300ACE25D /* LocationHelper.swift in Sources */,
+				A16CE5CF23078D5A00A0FE5C /* Privilege.swift in Sources */,
 				A140D95E21F693C2008963C1 /* SenitmentReportViewController.swift in Sources */,
 				A1F95304220278B000C3CC9C /* UserTabBarContainerViewController.swift in Sources */,
 				A13547CC21E6DE620045C5F0 /* Response+Mapping.swift in Sources */,
@@ -787,7 +799,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Sentiment Bot/Sentiment Bot.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5KBWP959TD;
+				DEVELOPMENT_TEAM = 7WH6XTF8JG;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -798,7 +810,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.expertservices.Sentiment-Bot";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moinuddin.Sentiment-Bot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -812,7 +824,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Sentiment Bot/Sentiment Bot.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5KBWP959TD;
+				DEVELOPMENT_TEAM = 7WH6XTF8JG;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -823,7 +835,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.expertservices.Sentiment-Bot";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.moinuddin.Sentiment-Bot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
