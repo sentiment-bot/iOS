@@ -37,8 +37,17 @@ class SignInUpViewController: UIViewController {
     @IBOutlet weak var moinButton: UIButton!
     @IBOutlet weak var scottButton: UIButton!
     
+    // MARK: - Enums
+    
+    enum Route {
+        case segue
+        case present
+    }
+    
     // MARK: - Properties
     
+    var route: Route = .segue
+    var privilege: Privilege?
     var switchLogin = true
     var user: User?
     let locationHelper = LocationHelper()
@@ -92,27 +101,29 @@ class SignInUpViewController: UIViewController {
         
         popSignIn()
         popSignUp()
-        
-        
-        
-        guard let _ = GIDSignIn.sharedInstance()?.currentUser else {
-            return
-        }
-
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showSignIn()
+        forcePresentVC()
+    }
+    
+    // MARK: - Private Functions
+    
+    //Exclusively for Google Sign In
+    private func forcePresentVC() {
         guard let _ = GIDSignIn.sharedInstance()?.currentUser else { return }
-        guard let user = user else { return }
-        if user.isAdmin {
-            presentVC(identifier: "ManagerTabBarContainerViewController")
-        } else if user.isTeamMember {
-            presentVC(identifier: "UserTabBarContainerViewController")
-        } else {
+        
+        guard let privilege = privilege else { return
             presentVC(identifier: "InitialViewController")
+        }
+        
+        switch privilege {
+        case .admin:
+            presentVC(identifier: "ManagerTabBarContainerViewController")
+        case .teamMember:
+            presentVC(identifier: "UserTabBarContainerViewController")
         }
     }
     
@@ -123,40 +134,59 @@ class SignInUpViewController: UIViewController {
         self.present(VC, animated: true)
     }
     
-    // MARK: - Private Functions
-    
     private func getUser() {
-        
         APIController.shared.getUser(userId: UserDefaults.standard.userId) { (user, errorMessage) in
             if let errorMessage = errorMessage {
                 NSLog(errorMessage.message.joined())
             } else if let user = user {
+                self.user = user
                 self.privilege = user.isAdmin ? .admin : user.isTeamMember ? .teamMember : nil
-                self.forcePerformSegue(privilege: self.privilege)
+                self.transition()
             }
         }
     }
     
-    var privilege: Privilege?
+    private func transition() {
+        switch route {
+        case .segue:
+            forcePerformSegue()
+        case .present:
+            forcePresentVC()
+        }
+    }
     
     
-    private func forcePerformSegue(privilege: Privilege?) {
+    private func forcePerformSegue() {
         guard let privilege = privilege else {
             presentVC(identifier: "InitialViewController")
             return
         }
-        switch privilege{
-            case .admin:
-                self.performSegue(withIdentifier: "ToManagerScreen", sender: self)
-            case .teamMember:
-                self.performSegue(withIdentifier: "ToTeamMemberScreen", sender: self)
+        
+        switch privilege {
+        case .admin:
+            self.performSegue(withIdentifier: "ToManagerScreen", sender: self)
+        case .teamMember:
+            self.performSegue(withIdentifier: "ToTeamMemberScreen", sender: self)
         }
     }
     
+    private func clearFields() {
+        DispatchQueue.main.async {
+            self.signInEmailTextField.text = ""
+            self.signInPasswordTextField.text = ""
+            self.firstNameTextField.text = ""
+            self.lastNameTextField.text = ""
+            self.signUpEmailTextField.text = ""
+            self.signUpPasswordTextField.text = ""
+        }
+    }
+    
+    // MARK: - IBActions
+    
     @IBAction func signIn(_ sender: UIButton) {
-
+        
         guard let email = signInEmailTextField.text,
-              let password = signInPasswordTextField.text else { return }
+            let password = signInPasswordTextField.text else { return }
         
         APIController.shared.logIn(email: email, password: password) { (error) in
             
@@ -175,18 +205,7 @@ class SignInUpViewController: UIViewController {
     @IBAction func googleSignIn(_ sender: Any) {
         GIDSignIn.sharedInstance()?.signIn()
         popSignIn()
-
-    }
-    
-    func clearFields() {
-        DispatchQueue.main.async {
-            self.signInEmailTextField.text = ""
-            self.signInPasswordTextField.text = ""
-            self.firstNameTextField.text = ""
-            self.lastNameTextField.text = ""
-            self.signUpEmailTextField.text = ""
-            self.signUpPasswordTextField.text = ""
-        }
+        
     }
     
     @IBAction func signUp(_ sender: UIButton) {
@@ -242,17 +261,8 @@ extension SignInUpViewController: GIDSignInUIDelegate, GIDSignInDelegate {
                 if let errorMessage = errorMessage {
                     NSLog("Error: \(errorMessage)")
                 } else {
-                    APIController.shared.getUser(userId: UserDefaults.standard.userId) { (user, error) in
-                        
-                        if let error = error {
-                            NSLog("There was error retreiving current User: \(error)")
-                        } else if let user = user {
-                            self.user = user
-                            DispatchQueue.main.async {
-                                self.viewDidAppear(true)
-                            }
-                        }
-                    }
+                    self.route = .present
+                    self.getUser()
                 }
             }
         }
